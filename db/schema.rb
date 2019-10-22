@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_121345) do
+ActiveRecord::Schema.define(version: 2019_10_22_121849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 2019_10_22_121345) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "records", force: :cascade do |t|
+    t.integer "feeling", null: false
+    t.integer "serving_style", null: false
+    t.string "location"
+    t.bigint "tast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tast_id"], name: "index_records_on_tast_id"
+  end
+
   create_table "tasts", force: :cascade do |t|
     t.integer "bitterness", default: 3, null: false
     t.integer "sweetness", default: 3, null: false
@@ -76,4 +86,5 @@ ActiveRecord::Schema.define(version: 2019_10_22_121345) do
   add_foreign_key "beer_categories", "beers"
   add_foreign_key "beer_categories", "categories"
   add_foreign_key "breweries", "beers"
+  add_foreign_key "records", "tasts"
 end
