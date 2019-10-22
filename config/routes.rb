@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  root "posts#index"
+  root 'posts#index'
 
   devise_for :users, skip: [:sessions, :registrations]
 
@@ -12,4 +11,7 @@ Rails.application.routes.draw do
     post "login", to: "devise/sessions#create", as: :user_session
     delete "logout", to: "devise/sessions#destroy", as: :destroy_user_session
   end
+
+  resources :users, only: %i[index show edit update]
+
 end
