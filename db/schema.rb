@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_120555) do
+ActiveRecord::Schema.define(version: 2019_10_22_120949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beer_categories", force: :cascade do |t|
+    t.bigint "beer_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_id"], name: "index_beer_categories_on_beer_id"
+    t.index ["category_id"], name: "index_beer_categories_on_category_id"
+  end
 
   create_table "beers", force: :cascade do |t|
     t.string "name"
@@ -35,6 +44,12 @@ ActiveRecord::Schema.define(version: 2019_10_22_120555) do
     t.index ["beer_id"], name: "index_breweries_on_beer_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "icon", default: "no_image"
@@ -49,5 +64,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_120555) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "beer_categories", "beers"
+  add_foreign_key "beer_categories", "categories"
   add_foreign_key "breweries", "beers"
 end
