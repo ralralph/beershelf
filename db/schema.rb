@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_122231) do
+ActiveRecord::Schema.define(version: 2019_10_22_123324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(version: 2019_10_22_122231) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
+    t.string "photo"
+    t.bigint "user_id"
+    t.bigint "beer_id"
+    t.bigint "record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_id"], name: "index_posts_on_beer_id"
+    t.index ["record_id"], name: "index_posts_on_record_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -96,6 +109,9 @@ ActiveRecord::Schema.define(version: 2019_10_22_122231) do
   add_foreign_key "beer_categories", "beers"
   add_foreign_key "beer_categories", "categories"
   add_foreign_key "breweries", "beers"
+  add_foreign_key "posts", "beers"
+  add_foreign_key "posts", "records"
+  add_foreign_key "posts", "users"
   add_foreign_key "records", "tasts"
   add_foreign_key "wishlists", "beers"
   add_foreign_key "wishlists", "users"
