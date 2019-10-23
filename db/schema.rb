@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_130108) do
+ActiveRecord::Schema.define(version: 2019_10_23_045346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,10 +67,8 @@ ActiveRecord::Schema.define(version: 2019_10_22_130108) do
     t.integer "feeling", null: false
     t.integer "serving_style", null: false
     t.string "location"
-    t.bigint "tast_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tast_id"], name: "index_records_on_tast_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -90,6 +88,8 @@ ActiveRecord::Schema.define(version: 2019_10_22_130108) do
     t.integer "flavor", default: 3, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "record_id"
+    t.index ["record_id"], name: "index_tasts_on_record_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_130108) do
   add_foreign_key "posts", "beers"
   add_foreign_key "posts", "records"
   add_foreign_key "posts", "users"
-  add_foreign_key "records", "tasts"
+  add_foreign_key "tasts", "records"
   add_foreign_key "wishlists", "beers"
   add_foreign_key "wishlists", "users"
 end
