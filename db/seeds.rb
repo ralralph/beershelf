@@ -31,3 +31,42 @@ Tast.create!(
   sourness: 3,
   flavor: 3,
 )
+
+# BeerCategory.create!(
+#   id: '100',
+#   beer_id: '1',
+#   category_id: '1',
+# )
+
+Category.create!(
+  [
+    {
+      id: '1',
+      name: 'pilsner',
+    },
+    {
+      id: '2',
+      name: 'paleale',
+    },
+    {
+      id: '3',
+      name: 'ipa',
+    },
+    {
+      id: '4',
+      name: 'weizen',
+    },
+    {
+      id: '5',
+      name: 'fruit_beer',
+    },
+    {
+      id: '6',
+      name: 'stout',
+    },
+    {
+      id: '7',
+      name: 'barler_whine',
+    }
+  ]
+)
