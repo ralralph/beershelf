@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  belongs_to :beer
-  belongs_to :record
+  # validates :content, :photo, presence: true
+
+  belongs_to :user, optional: true
+  belongs_to :beer, optional: true
+  belongs_to :record, optional: true
 end
