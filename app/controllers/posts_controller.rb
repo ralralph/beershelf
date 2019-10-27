@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @beers = Beer.select(:id, :name).order(id: :desc)
     @records = Record.select(:id, :serving_style).order(id: :desc)
     @tastes = Tast.select(:bitterness, :sweetness ,:sourness ,:flavor)
+    @rates = [1 ,2 ,3 ,4 ,5]
   end
 
   def create

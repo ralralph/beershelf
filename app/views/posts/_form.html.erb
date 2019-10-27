@@ -18,13 +18,20 @@
     <% end %>
 
       <p><%= fields_for @tast do |tast| %></p>
-        <p><%= tast.collection_select(:bitterness, [1..5], :bitterness, :bitterness) %></p>
+        <p><%= f.label :bitterness %></p>
+        <p><%= tast.select(:bitterness, @rates) %></p>
+        <p><%= f.label :sweetness %></p>
+        <p><%= tast.select(:sweetness, @rates) %></p>
+        <p><%= f.label :sourness %></p>
+        <p><%= tast.select(:sourness, @rates) %></p>
+        <p><%= f.label :flavor %></p>
+        <p><%= tast.select(:flavor, @rates) %></p>
       <% end %>
 
 
   <%= f.submit %>
 <% end %>
 
-bitterness: integer, sweetness: integer, sourness: integer, flavor: integer
+
 
 
