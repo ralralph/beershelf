@@ -1,0 +1,30 @@
+<%= form_with(model: @post, local: true) do |f| %>
+  <p><%= f.file_field :photo %></p>
+  <p><%= f.hidden_field :photo_cache %></p>
+  <p><%= f.text_area :content %></p>
+    <p><%= f.fields_for @post.beer do |beer| %></p>
+      <p><%= beer.label :name %></p>
+      <p><%= beer.collection_select(:name, @beers, :name, :name, {prompt: "銘柄を選択"}) %></p>
+    <% end %>
+    <p><%= f.fields_for @record do |record| %></p>
+      <p><%= record.radio_button :feeling, :good %></p>
+      <p><%= record.label :good %></p>
+      <p><%= record.radio_button :feeling, :ok %></p>
+      <p><%= record.label :ok %></p>
+      <p><%= record.radio_button :feeling, :bad %></p>
+      <p><%= record.label :bad %></p>
+      <p><%= record.label :serving_style %></p>
+      <p><%= record.select(:serving_style, Record.serving_styles.keys.to_a, {prompt: "提供スタイルを選択"}) %></p>
+    <% end %>
+
+      <p><%= fields_for @tast do |tast| %></p>
+        <p><%= tast.collection_select(:bitterness, [1..5], :bitterness, :bitterness) %></p>
+      <% end %>
+
+
+  <%= f.submit %>
+<% end %>
+
+bitterness: integer, sweetness: integer, sourness: integer, flavor: integer
+
+
