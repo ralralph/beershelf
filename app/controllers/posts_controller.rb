@@ -47,6 +47,10 @@ class PostsController < ApplicationController
 
   private
 
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
     params.require(:post).permit(:content, :photo, :photo_cache, :remove_photo, :beer_id,
                                   record_attributes:
@@ -55,19 +59,15 @@ class PostsController < ApplicationController
                                     :feeling,
                                     :erving_style,
                                     :location,
-                                    tast_attributes:
-                                    [
-                                      :id,
-                                      :bitterness,
-                                      :sweetness,
-                                      :sourness,
-                                      :flavor
-                                    ]
+                                  ],
+                                  tast_attributes:
+                                  [
+                                    :id,
+                                    :bitterness,
+                                    :sweetness,
+                                    :sourness,
+                                    :flavor
                                   ]
                                 )
-  end
-
-  def set_post
-    @post = Post.find(params[:id])
   end
 end

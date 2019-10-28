@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'posts#index'
 
   devise_for :users, skip: [:sessions, :registrations]
@@ -15,5 +14,6 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index show edit update]
   resources :posts, except: %i[index]
+  resources :beers
 
 end
