@@ -1,0 +1,8 @@
+<% @breweries.each do |b| %>
+  <p><%= b.image %></p>
+  <p><%= b.name %></p>
+  <p><%= b.country %></p>
+  <p><%= link_to 'show', brewery_path(b) %></p>
+  <p><%= link_to 'edit', brewery_path(b) %></p>
+  <p><%= link_to 'destroy', brewery_path(b), method: :delete %></p>
+<% end %>
