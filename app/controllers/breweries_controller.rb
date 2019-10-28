@@ -25,7 +25,7 @@ class BreweriesController < ApplicationController
   end
 
   def update
-    if @brewery.update
+    if @brewery.update(brewery_params)
       redirect_to brewery_path(@brewery), notice: '更新しました。'
     else
       render :edit
