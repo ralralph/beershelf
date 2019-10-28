@@ -15,6 +15,8 @@
       <p><%= record.label :bad %></p>
       <p><%= record.label :serving_style %></p>
       <p><%= record.select(:serving_style, Record.serving_styles.keys.to_a, {prompt: "提供スタイルを選択"}) %></p>
+      <p><%= record.label :location %></p>
+      <p><%= record.text_field :location %></p>
     <% end %>
 
       <p><%= fields_for @tast do |tast| %></p>
