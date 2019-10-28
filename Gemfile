@@ -28,6 +28,9 @@ gem 'ransack'
 # 装飾関連
 gem 'toastr-rails'
 
+# 外部ライブラリ
+gem 'country_select', '~> 4.0'
+
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do

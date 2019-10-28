@@ -1,0 +1,10 @@
+<%= form_with(model: @brewery, local: true) do |f| %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :country %></p>
+  <p><%= f.country_select(:country, {prompt: '原産国を選択'}) %></p>
+  <p><%= f.file_field :image %></p>
+  <p><%= f.label :detail %></p>
+  <p><%= f.text_area :detail %></p>
+  <p><%= f.submit %></p>
+<% end%>
