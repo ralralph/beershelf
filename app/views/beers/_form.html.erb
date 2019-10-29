@@ -1,0 +1,19 @@
+<%= form_with(model: @beer, local: true) do |f| %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.select(:volume, @volume_value) %>%</p>
+
+    <%= fields_for @brewery do |brewery| %>
+      <p><%= brewery.collection_select(:id, @brewery_list, :id, :name, {prompt: '醸造所を選択'})%></p>
+    <% end%>
+    <%= fields_for @category do |category| %>
+      <p><%= category.collection_select(:id, @category_list, :id, :name, {prompt: 'カテゴリーを選択'})%></p>
+    <% end%>
+
+    <p><%= f.file_field :image %></p>
+    <p><%= f.hidden_field :image_cache %></p>
+    <p><%= f.text_area :detail %></p>
+
+
+  <%= f.submit %>
+<% end %>

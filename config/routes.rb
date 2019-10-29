@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[index show edit update]
+  resources :posts, except: %i[index]
+  resources :beers
+  resources :breweries
 
 end

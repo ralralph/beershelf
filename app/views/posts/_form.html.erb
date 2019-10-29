@@ -1,0 +1,37 @@
+<%= form_with(model: @post, local: true) do |f| %>
+  <p><%= f.file_field :photo %></p>
+  <p><%= f.hidden_field :photo_cache %></p>
+  <p><%= f.text_area :content %></p>
+    <%= f.fields_for @post.beer do |beer| %>
+      <p><%= beer.label :name %></p>
+      <p><%= beer.collection_select(:name, @beers, :name, :name, {prompt: '銘柄を選択'}) %></p>
+    <% end %>
+    <%= f.fields_for @record do |record| %><
+      <p><%= record.radio_button :feeling, :good %></p>
+      <p><%= record.label :good %></p>
+      <p><%= record.radio_button :feeling, :ok %></p>
+      <p><%= record.label :ok %></p>
+      <p><%= record.radio_button :feeling, :bad %></p>
+      <p><%= record.label :bad %></p>
+      <p><%= record.label :serving_style %></p>
+      <p><%= record.select(:serving_style, Record.serving_styles.keys.to_a, {prompt: '提供スタイルを選択'}) %></p>
+      <p><%= record.label :location %></p>
+      <p><%= record.text_field :location %></p>
+    <% end %>
+
+    <%= fields_for @tast do |tast| %>
+      <p><%= f.label :bitterness %></p>
+      <p><%= tast.select(:bitterness, @rates) %></p>
+      <p><%= f.label :sweetness %></p>
+      <p><%= tast.select(:sweetness, @rates) %></p>
+      <p><%= f.label :sourness %></p>
+      <p><%= tast.select(:sourness, @rates) %></p>
+      <p><%= f.label :flavor %></p>
+      <p><%= tast.select(:flavor, @rates) %></p>
+    <% end %>
+  <%= f.submit %>
+<% end %>
+
+
+
+

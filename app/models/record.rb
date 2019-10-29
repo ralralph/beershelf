@@ -2,6 +2,6 @@ class Record < ApplicationRecord
   # validates :feeling, :serving_style, presence: true
   has_one :tast
 
-  enum feeling: %i[good ok bad]
-  enum serving_style: %i[draft bottle can taster other]
+  enum feeling: {good:1, ok:2, bad:3}
+  enum serving_style: {draft:1, bottle:2, can:3, taster:4, other:5}
 end
