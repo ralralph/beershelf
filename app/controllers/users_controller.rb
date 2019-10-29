@@ -7,8 +7,12 @@ class UsersController < ApplicationController
 
   def show
     @posts = current_user.posts.select(:id, :photo).order(update: :desc) if current_user.posts.exists?
-    # @wishinglists = current_user.wishing_lists
-    # @conmpleatlist = current_user.complete_lists
+
+    wishings = Wishlist.where(user_id: current_user).where(complete: true).order(created_at: :desc).select(:beer_id)
+    @wishinglists = Beer.where(id: wishings)
+
+    completes = Wishlist.where(user_id: current_user).where(complete: false).order(created_at: :desc).select(:beer_id)
+    @completelist = Beer.where(id: completes)
   end
 
   private
@@ -16,5 +20,4 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 end
