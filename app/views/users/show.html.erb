@@ -1,0 +1,16 @@
+<p><%= current_user.icon %></p>
+<p><%= current_user.name %></p>
+<p><%= link_to 'follower' %></p>
+
+<% @wishinglists.each do |w| %>
+  <p><%= w.image %></p>
+  <p><%= w.name %></p>
+  <p><%= link_to 'show', beer_path(w) %></p>
+<% end %>
+
+<% @completelist.each do |w| %>
+  <p><%= w.image %></p>
+  <p><%= w.name %></p>
+  <p><%= link_to 'show', beer_path(w) %></p>
+<% end %>
+

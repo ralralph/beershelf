@@ -15,14 +15,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    current_user.assign_attributes(account_update_params)
+    if current_user.save
+      redirect_to user_path(current_user), notice: 'プロフィールを更新しました'
+    else
+      render "profile_edit"
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -38,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -46,10 +51,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  end
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
