@@ -1,12 +1,9 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <p><%= f.file_field :photo %></p>
-  <p><%= f.hidden_field :photo_cache %></p>
   <p><%= f.text_area :content %></p>
-    <%= f.fields_for @post.beer do |beer| %>
-      <p><%= beer.label :name %></p>
-      <p><%= beer.collection_select(:name, @beers, :name, :name, {prompt: '銘柄を選択'}) %></p>
-    <% end %>
-    <%= f.fields_for @record do |record| %><
+  <p><%= f.label :name %></p>
+  <p><%= f.collection_select(:beer_id, @beers, :id, :name, {prompt: '銘柄を選択'}) %></p>
+    <%= f.fields_for :record do |record| %><
       <p><%= record.radio_button :feeling, :good %></p>
       <p><%= record.label :good %></p>
       <p><%= record.radio_button :feeling, :ok %></p>
@@ -19,7 +16,7 @@
       <p><%= record.text_field :location %></p>
     <% end %>
 
-    <%= fields_for @tast do |tast| %>
+    <%= fields_for :tast do |tast| %>
       <p><%= f.label :bitterness %></p>
       <p><%= tast.select(:bitterness, @rates) %></p>
       <p><%= f.label :sweetness %></p>

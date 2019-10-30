@@ -8,9 +8,10 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.build_beer # beer = @post.build_beer?
-    @record = @post.build_record #@post.build_record #
-    @tast = @record.build_tast #@post.build_tast
+    @post.build_record #@post.build_record #
+    @record = Record.new
+    @record.build_tast
+
     @beers = Beer.select(:id, :name).order(id: :desc)
     @records = Record.select(:id, :serving_style).order(id: :desc)
     @tastes = Tast.select(:bitterness, :sweetness ,:sourness ,:flavor)
@@ -53,12 +54,12 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :photo, :photo_cache, :remove_photo, :beer_id,
+    params.require(:post).permit(:content, :photo, :photo_cache, :remove_photo, :beer_id, :record_id, :tast_id,
                                   record_attributes:
                                   [
                                     :id,
                                     :feeling,
-                                    :erving_style,
+                                    :serving_style,
                                     :location,
                                   ],
                                   tast_attributes:
@@ -68,6 +69,11 @@ class PostsController < ApplicationController
                                     :sweetness,
                                     :sourness,
                                     :flavor
+                                  ],
+                                  beer_attributes:
+                                  [
+                                    :id,
+                                    :name
                                   ]
                                 )
   end
