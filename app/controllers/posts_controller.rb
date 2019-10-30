@@ -9,8 +9,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.build_record #@post.build_record #
-    @record = Record.new
-    @record.build_tast
+    @post.record.build_tast
 
     @beers = Beer.select(:id, :name).order(id: :desc)
     @records = Record.select(:id, :serving_style).order(id: :desc)
