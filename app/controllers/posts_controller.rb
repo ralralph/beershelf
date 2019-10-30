@@ -28,6 +28,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = @post.user
+    @beer = @post.beer
+    @record = @post.record
   end
 
   def edit
