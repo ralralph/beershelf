@@ -52,22 +52,6 @@ Category.create!(
   ]
 )
 
-Record.create!(
-  id: '100',
-  feeling: 1,
-  serving_style: 1,
-  location: nil,
-)
-
-Tast.create!(
-  id: '100',
-  record_id: '100',
-  bitterness: 3,
-  sweetness: 3,
-  sourness: 3,
-  flavor: 3,
-)
-
 Brewery.create!(
   id: '100',
   name: 'ヤッホーブルーイング',
@@ -113,33 +97,49 @@ Beer.create!(
 )
 
 Post.create!(
-  id: 100,
+  id: '100',
   content: '表参道の専門店で飲んでます。',
   photo: 'noimage',
-  user_id: 100,
-  beer_id: 100,
-  record_id: 100,
+  user_id: '100',
+  beer_id: '100',
+)
+
+Record.create!(
+  id: '100',
+  feeling: 1,
+  serving_style: 1,
+  location: nil,
+  post_id: '100',
+)
+
+Tast.create!(
+  id: '100',
+  record_id: '100',
+  bitterness: 3,
+  sweetness: 3,
+  sourness: 3,
+  flavor: 3,
 )
 
 Wishlist.create!(
   [
     {
-      id: 100,
+      id: '100',
       complete: true,
-      user_id: 100,
-      beer_id: 100,
+      user_id: '100',
+      beer_id: '100',
     },
     {
-      id: 101,
+      id: '101',
       complete: true,
-      user_id: 100,
-      beer_id: 101,
+      user_id: '100',
+      beer_id: '101',
     },
     {
-      id: 102,
+      id: '102',
       complete: false,
-      user_id: 100,
-      beer_id: 102,
+      user_id: '100',
+      beer_id: '102',
     }
   ]
 )

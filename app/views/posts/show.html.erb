@@ -1,2 +1,18 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<%# user情報 %>
+<p><%= @user.icon %></p>
+<p><%= @user.name %></p>
+<%# post情報 %>
+<p><%= @post.photo %></p>
+<p><%= @post.content %></p>
+<%# beer情報 %>
+<p><%= @beer.name %></p>
+<p><%= @beer.volume %></p>
+<p><%= @beer.category.name %></p>
+<%# recod情報 %>
+<p><%= @record.feeling %></p>
+<p><%= @record.tast.bitterness %></p>
+<p><%= @record.tast.sweetness %></p>
+<p><%= @record.tast.sourness %></p>
+<p><%= @record.tast.flavor %></p>
+<p><%= @record.location %></p>
+<p><%= link_to 'back', :back %></p>
