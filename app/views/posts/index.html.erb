@@ -6,6 +6,6 @@
   <p><%= p.beer.name %></p>
   <p><%= p.record.serving_style %></p>
   <p><%= link_to 'show', post_path(p) %></p>
-  <p><%= link_to 'edit', post_path(p) %></p>
+  <p><%= link_to 'edit', edit_post_path(p) %></p>
   <p><%= link_to 'destroy', post_path(p), method: :delete %></p>
 <% end%>
