@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root 'posts#index'
 
   devise_for :users,
@@ -18,5 +20,6 @@ Rails.application.routes.draw do
   resources :posts, except: %i[index]
   resources :beers
   resources :breweries
+  resources :relationships, only: [:create, :destroy]
 
 end
