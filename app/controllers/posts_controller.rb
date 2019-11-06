@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  # before_action :authenticate_user!
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
@@ -7,17 +8,17 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.build_beer # beer = @post.build_beer?
-    @record = @post.build_record #@post.build_record #
-    @tast = @record.build_tast #@post.build_tast
+    record = @post.build_record #@post.build_record #
+    record.build_tast
+
     @beers = Beer.select(:id, :name).order(id: :desc)
     @records = Record.select(:id, :serving_style).order(id: :desc)
-    @tastes = Tast.select(:bitterness, :sweetness ,:sourness ,:flavor)
     @rates = [1 ,2 ,3 ,4 ,5]
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    binding.pry
     if @post.save
       redirect_to root_path, notice: '投稿しました。'
     else
@@ -26,9 +27,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = @post.user
+    @beer = @post.beer
+    @record = @post.record
   end
 
   def edit
+    @rates = [1 ,2 ,3 ,4 ,5]
   end
 
   def update
@@ -40,7 +45,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.destroy
+    if @post.destroy!
       redirect_to root_path
     end
   end
@@ -52,21 +57,21 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :photo, :photo_cache, :remove_photo, :beer_id,
+    params.require(:post).permit(:content, :photo, :photo_cache, :remove_photo, :beer_id, :record_id,
                                   record_attributes:
                                   [
                                     :id,
                                     :feeling,
-                                    :erving_style,
+                                    :serving_style,
                                     :location,
-                                  ],
                                   tast_attributes:
-                                  [
-                                    :id,
-                                    :bitterness,
-                                    :sweetness,
-                                    :sourness,
-                                    :flavor
+                                    [
+                                      :id,
+                                      :bitterness,
+                                      :sweetness,
+                                      :sourness,
+                                      :flavor
+                                    ]
                                   ]
                                 )
   end
