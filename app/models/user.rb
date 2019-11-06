@@ -15,8 +15,6 @@ class User < ApplicationRecord
 
   has_many :wishlists, dependent: :destroy
   has_many :beer_lists, through: :wishlists, source: :beer
-
-
   # follow機能関連のメソッド
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
@@ -29,4 +27,5 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
+
 end

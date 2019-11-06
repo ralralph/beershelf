@@ -1,6 +1,7 @@
 <%# user情報 %>
 <p><%= @user.icon %></p>
 <p><%= @user.name %></p>
+<%= render 'users/follow_form', user: @user %>
 <%# post情報 %>
 <p><%= @post.photo %></p>
 <p><%= @post.content %></p>
