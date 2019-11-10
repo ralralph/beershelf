@@ -7,8 +7,6 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
-    @brewery = @beer.build_brewery
-    @category = @beer.build_category
     @volume_value = Range.new(0, 100) # アルコール度数の入力範囲
     @brewery_list = Brewery.select(:id, :name).order(name: :asc)
     @category_list = Category.select(:id, :name).order(name: :asc)
@@ -53,11 +51,11 @@ class BeersController < ApplicationController
     params.require(:beer).permit(:name, :volume, :detail, :image, :image_cache, :brewery_id, :category_id,
                                   brewery_attributes:
                                   [
-                                    :id,
+                                    :id
                                   ],
                                   category_attributes:
                                   [
-                                    :id,
+                                    :id
                                   ]
                                 )
   end
