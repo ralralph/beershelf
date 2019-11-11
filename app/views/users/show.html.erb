@@ -3,7 +3,7 @@
 <p><%= link_to 'follower' %></p>
 
 <% @wishinglists.each do |w| %>
-  <p><%= w.image %></p>
+  <p><%= image_tag w.image.url %></p>
   <p><%= w.name %></p>
   <p><%= link_to 'show', beer_path(w) %></p>
 <% end %>
