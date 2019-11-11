@@ -23,9 +23,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     current_user.assign_attributes(account_update_params)
     if current_user.save
+      bypass_sign_in(current_user)
       redirect_to user_path(current_user), notice: 'プロフィールを更新しました'
     else
-      render "profile_edit"
+      render :edit
     end
   end
 

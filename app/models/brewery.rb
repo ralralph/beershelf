@@ -1,3 +1,5 @@
 class Brewery < ApplicationRecord
-  belongs_to :beer, optional: true
+  mount_uploader :image, ImageUploader
+
+  has_many :beers
 end
