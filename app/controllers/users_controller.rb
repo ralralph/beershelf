@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = current_user.posts.select(:id, :photo).order(update: :desc) if current_user.posts.exists?
+    @posts = @user.posts.select(:id, :photo).order(update: :desc) if @user.posts.exists?
 
-    wishings = Wishlist.where(user_id: current_user).where(complete: true).order(created_at: :desc).select(:beer_id)
+    wishings = Wishlist.where(user_id: @user).where(complete: true).order(created_at: :desc).select(:beer_id)
     @wishinglists = Beer.where(id: wishings)
 
-    completes = Wishlist.where(user_id: current_user).where(complete: false).order(created_at: :desc).select(:beer_id)
+    completes = Wishlist.where(user_id: @user).where(complete: false).order(created_at: :desc).select(:beer_id)
     @completelist = Beer.where(id: completes)
   end
 
