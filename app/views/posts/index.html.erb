@@ -1,7 +1,7 @@
 
 <% @posts.each do |p| %>
   <p><%= p.user.name %></p>
-  <p><%= p.photo %></p>
+  <p><%= image_tag p.photo.url %></p>
   <p><%= p.content %></p>
   <p><%= p.beer.name %></p>
   <p><%= p.record.serving_style %></p>
