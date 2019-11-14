@@ -99,7 +99,6 @@ Beer.create!(
 Post.create!(
   id: '100',
   content: '表参道の専門店で飲んでます。',
-  photo: 'noimage',
   user_id: '100',
   beer_id: '100',
 )
