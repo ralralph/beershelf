@@ -13,18 +13,13 @@
     <header>
       <nav>
         <% if user_signed_in? %>
-          <strong><%= link_to current_user.name, user_path(current_user.id) %></strong>
-          <%= link_to 'edit', edit_user_registration_path(current_user.id) %>
-          <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-          <%= link_to 'post', new_post_path %>
+          <%= render 'layouts/login' %>
         <% else %>
-          <%= link_to 'signup', new_user_registration_path %>
-          <%= link_to 'login', new_user_session_path %>
+          <%= render 'layouts/logout' %>
         <% end %>
       </nav>
+      <%= render 'layouts/flash' %>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
