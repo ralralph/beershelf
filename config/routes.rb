@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
   root 'posts#index'
 
   devise_for :users,
@@ -17,9 +15,9 @@ Rails.application.routes.draw do
     }
 
   resources :users, only: %i[index show]
-  resources :posts, except: %i[index]
-  resources :beers
-  resources :breweries
-  resources :relationships, only: [:create, :destroy]
+  resources :posts
+  resources :wishlists, only: %i[create update]
+  resources :beers, :breweries
+  resources :relationships, only: %i[create destroy]
 
 end
