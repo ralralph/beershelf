@@ -18,7 +18,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    binding.pry
     if @post.save
       redirect_to root_path, notice: '投稿しました。'
     else
@@ -45,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.destroy!
+    if @post.destroy
       redirect_to root_path
     end
   end
@@ -57,7 +56,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :photo, :photo_cache, :remove_photo, :beer_id, :record_id,
+    params.require(:post).permit(:content, :photo, :photo_cache, :remove_photo, :beer_id, :record_id, :user_id,
                                   record_attributes:
                                   [
                                     :id,

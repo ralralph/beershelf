@@ -20,4 +20,15 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+  def user_params
+    params.require(:user).permit(
+            wishlist_attributes:
+            [
+            :id,
+            :user_id,
+            :complete,
+          ]
+        )
+  end
 end

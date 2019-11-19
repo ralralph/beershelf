@@ -4,7 +4,7 @@
 <%= render 'users/follow_form', user: @user %>
 <%# post情報 %>
 <p><%= image_tag @post.photo.url %></p>
-<p><%= render 'wishlist_form' %></p>
+<p><%= render 'wishlists/wishlist_form', beer: @beer %></p>
 <p><%= @post.content %></p>
 <%# beer情報 %>
 <p><%= @beer.name %></p>
