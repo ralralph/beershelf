@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   has_many :wishlists, dependent: :destroy
   has_many :beer_lists, through: :wishlists, source: :beer
+
+  accepts_nested_attributes_for :wishlists
   # follow機能関連のメソッド
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)

@@ -1,0 +1,7 @@
+<%= form_with(model: Wishlist.new, url: wishlists_path, local: true ) do |f| %>
+  <%= f.hidden_field :beer_id, value: @beer.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :complete, value: 'false' %>
+  <%= f.submit "add_wishlist" %>
+<% end %>
+

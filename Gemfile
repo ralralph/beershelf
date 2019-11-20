@@ -27,6 +27,7 @@ gem 'ransack'
 
 # 装飾関連
 gem 'toastr-rails'
+gem 'jquery-rails'
 
 # 外部ライブラリ
 gem 'country_select', '~> 4.0'
