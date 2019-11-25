@@ -1,0 +1,117 @@
+@charset "utf-8";
+/*
+ShareStyle [
+----------------------------------------------------------- */
+* {
+  margin:0;
+  padding:0;
+}
+
+html {
+  overflow-y:scroll;
+}
+
+body {
+  background-color: #FAFAFA;
+  color: #333;
+  font-family: Verdana, "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 80%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+}
+
+p,li,dt,dl {
+  line-height:1.6;
+}
+
+p {
+  margin:0 0 1em 0;
+}
+
+li {
+  list-style-type:none;
+}
+
+address {
+  font-style:normal;
+}
+
+.clear {
+  clear:both;
+}
+
+/*
+Link Color [
+----------------------------------------------------------- */
+a:link {
+	color:#078D00;
+	text-decoration:none;
+}
+a:visited {
+	color:#189B12;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+a:active {
+	color:#666;
+}
+
+
+/*
+container [
+----------------------------------------------------------- */
+#container {
+}
+
+
+/*
+Head [
+----------------------------------------------------------- */
+#head {
+}
+
+
+/*
+gNavi [
+----------------------------------------------------------- */
+#gNavi {
+}
+
+
+/*
+main [
+----------------------------------------------------------- */
+#main {
+}
+
+
+/*
+side [
+----------------------------------------------------------- */
+#side {
+}
+
+
+/*
+foot [
+----------------------------------------------------------- */
+#foot {
+}
+
+
+/*
+img [
+----------------------------------------------------------- */
+img {
+  border:0;
+  &__sm {
+  height: 42px;
+  width: 42;
+  }
+  &__md {
+  height: max-content;
+  }
+}

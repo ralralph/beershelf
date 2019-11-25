@@ -11,7 +11,8 @@
 
   <body>
     <header>
-      <nav>
+      <nav class="nav nav-barexpand-sm" >
+      <h1><%= link_to "BeerShelf", root_path %></h1>
         <% if user_signed_in? %>
           <%= render 'layouts/login' %>
         <% else %>
@@ -21,5 +22,8 @@
       <%= render 'layouts/flash' %>
     </header>
     <%= yield %>
+    <footer class="container-fluid footer">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>
