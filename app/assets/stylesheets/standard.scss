@@ -11,11 +11,21 @@ html {
   overflow-y:scroll;
 }
 
+header {
+  background-color: #FFFF;
+  height: 80px;
+  border: solid 1px #D6D6D6;
+}
+
 body {
-  background-color: #FAFAFA;
-  color: #333;
-  font-family: Verdana, "ＭＳ Ｐゴシック", sans-serif;
+  text-align: center;
   font-size: 80%;
+  font-family: Verdana, "ＭＳ Ｐゴシック", sans-serif;
+  color: #333;
+  background-color: #FAFAFA;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -37,70 +47,20 @@ address {
   font-style:normal;
 }
 
-.clear {
-  clear:both;
+main {
+  margin-bottom: 60px;
 }
 
-/*
-Link Color [
------------------------------------------------------------ */
-a:link {
-	color:#078D00;
-	text-decoration:none;
-}
-a:visited {
-	color:#189B12;
-	text-decoration:none;
-}
-a:hover {
-	text-decoration:underline;
-}
-a:active {
-	color:#666;
+.nav{
+  &__menu--right {
+    left: 20px;
+    text-align: center;
+  }
 }
 
+footer {
 
-/*
-container [
------------------------------------------------------------ */
-#container {
 }
-
-
-/*
-Head [
------------------------------------------------------------ */
-#head {
-}
-
-
-/*
-gNavi [
------------------------------------------------------------ */
-#gNavi {
-}
-
-
-/*
-main [
------------------------------------------------------------ */
-#main {
-}
-
-
-/*
-side [
------------------------------------------------------------ */
-#side {
-}
-
-
-/*
-foot [
------------------------------------------------------------ */
-#foot {
-}
-
 
 /*
 img [
@@ -114,4 +74,51 @@ img {
   &__md {
   height: max-content;
   }
+}
+
+/*
+Link Color [
+----------------------------------------------------------- */
+a:link {
+	color:#078D00;
+	text-decoration:none;
+}
+
+a:visited {
+	color:#189B12;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+a:active {
+	color:#666;
+}
+
+/*
+container [
+----------------------------------------------------------- */
+.container {
+    margin: 45px;
+    min-height: 380px;
+    border: solid 1px #D6D6D6;
+    background-color: #FFFF;
+  }
+
+.row {}
+
+.col {}
+
+.field, .actions {
+  margin-bottom: 1rem;
+}
+
+.clear {
+  clear:both;
+}
+
+.left {
+  right: 0;
 }
