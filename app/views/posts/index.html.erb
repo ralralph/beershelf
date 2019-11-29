@@ -1,14 +1,33 @@
-
-<% @posts.each do |p| %>
-  <p><%= image_tag p.user.icon.url %></p>
-  <p><%= p.user.name %></p>
-  <p><%= image_tag p.photo.url %></p>
-  <p><%= p.content %></p>
-  <%= link_to beer_path(p.beer.id) do %>
-    <% p.beer.name %>
-  <% end %>
-  <p><%= p.record.serving_style %></p>
-  <p><%= link_to 'show', post_path(p), data: {"turbolinks" => false} %></p>
-  <p><%= link_to 'edit', edit_post_path(p) if user_signed_in? %></p>
-  <p><%= link_to 'destroy', post_path(p), method: :delete if user_signed_in? %></p>
-<% end%>
+<div class="row posted__feed">
+  <% @posts.each do |p| %>
+    <div class="posted__user col-md-12">
+      <span class="posted__user--icon "><%= image_tag p.user.icon.url %></span>
+      <span><%= p.user.name %></span>
+    </div>
+    <div class="posted__content col-md-12">
+      <p><%= image_tag p.photo.url %></p>
+      <p><%= p.content %></p>
+    </div>
+    <div class="posted__info col-md-12">
+      <span class="inline-block col-md-3"><%= image_tag p.beer.image.url %></span>
+      <span class="inline-block col-md-5">
+        <ul>
+          <li>
+            <%= link_to beer_path(p.beer.id) do %>
+              <% p.beer.name %>
+            <% end %>
+          </li>
+          <li><%= p.beer.volume %></li>
+          <li><%= p.beer.category.name %></li>
+        </ul>
+      </span>
+      <span class="inline-block col-md-2"><%= link_to "wishlist", class:"btn btn-primary"%></span>
+      <span class="inline-block col-md-2"><%= p.record.serving_style %></span>
+    </div>
+    <div>
+      <p><%= link_to 'show', post_path(p), data: {"turbolinks" => false} %></p>
+      <p><%= link_to 'edit', edit_post_path(p) if user_signed_in? %></p>
+      <p><%= link_to 'destroy', post_path(p), method: :delete if user_signed_in? %></p>
+    </div>
+  <% end%>
+</div>
