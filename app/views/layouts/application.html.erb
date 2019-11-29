@@ -10,18 +10,22 @@
   </head>
 
   <body>
-    <header>
-      <nav class="nav nav-barexpand-sm" >
-      <h1><%= link_to "BeerShelf", root_path %></h1>
-        <% if user_signed_in? %>
-          <%= render 'layouts/login' %>
-        <% else %>
-          <%= render 'layouts/logout' %>
-        <% end %>
-      </nav>
-      <%= render 'layouts/flash' %>
+    <header class="inner">
+      <%# <div class="row header__wrap"> %>
+        <nav class="navbar navbar-expand-md navbar-light stick-top">
+          <span class="navbar-brand"><%= link_to "BeerShelf", root_path %></span>
+          <% if user_signed_in? %>
+            <%= render 'layouts/login' %>
+          <% else %>
+            <%= render 'layouts/logout' %>
+          <% end %>
+        </nav>
+        <%= render 'layouts/flash' %>
+      <%# </div> %>
     </header>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <footer class="container-fluid footer">
       <%= render 'layouts/footer' %>
     </footer>
