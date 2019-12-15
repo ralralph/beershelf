@@ -1,8 +1,9 @@
 <div class="row posted__feed">
   <% @posts.each do |p| %>
     <div class="posted__user col-md-12">
-      <span class="posted__user--icon "><%= image_tag p.user.icon.url %></span>
-      <span><%= p.user.name %></span>
+      <div class="posted__user--icon "><%= image_tag p.user.icon.url %>
+        <span><%= p.user.name %></span>
+      </div>
     </div>
     <div class="posted__content col-md-12">
       <p><%= image_tag p.photo.url %></p>
