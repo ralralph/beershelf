@@ -15,9 +15,9 @@
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
-
-@charset "utf-8";
 /*
 ShareStyle
 ----------------------------------------------------------- */
@@ -46,8 +46,8 @@ body {
   background-color: #f5f2e8;
 }
 
-h1,h2,h3,h4,h5,h6 {
-}
+// h1,h2,h3,h4,h5,h6 {
+// }
 
 p,li,dt,dl {
   line-height: 1.6px;
@@ -142,7 +142,6 @@ container
 header
 ----------------------------------------------------------- */
 .inner {
-  max-width: 1048px;
   width: 100%;
   margin: 0 auto 30px;
   padding: 0 12px;
