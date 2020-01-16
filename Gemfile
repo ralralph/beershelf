@@ -29,6 +29,7 @@ gem 'ransack'
 gem 'toastr-rails'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.1'
+gem 'font-awesome-sass'
 
 # 外部ライブラリ
 gem 'country_select', '~> 4.0'
