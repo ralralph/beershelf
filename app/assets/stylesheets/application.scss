@@ -21,11 +21,6 @@
 /*
 ShareStyle
 ----------------------------------------------------------- */
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
   overflow-y: scroll;
   font-size: 62.5%;
@@ -34,11 +29,7 @@ html {
 header {
   background-color: #ffcc00;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 100;
-  box-sizing: border-box;
-  border: solid 1px #D6D6D6;
 }
 
 body {
@@ -54,6 +45,7 @@ p,li,dt,dl {
 }
 
 p {
+  font-size: 1.4rem;
   margin: 0 0 1em 0;
 }
 
@@ -80,6 +72,26 @@ footer {
   bottom: 0;
   position: fixed;
   background-color: #fecc00;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2.1rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 0.7rem;
+}
+
+h5 {
+  font-size: 0.7rem;
 }
 
 /*
